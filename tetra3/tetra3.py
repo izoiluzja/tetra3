@@ -93,6 +93,7 @@ import logging
 import itertools
 from time import perf_counter as precision_timestamp
 from datetime import datetime
+from datetime import timezone
 from numbers import Number
 
 # External imports:
@@ -693,7 +694,7 @@ class Tetra3():
         elif isinstance(epoch_proper_motion, Number):
             self._logger.debug('Use proper motion epoch as given')
         elif str(epoch_proper_motion).lower() == 'now':
-            epoch_proper_motion = datetime.utcnow().year
+            epoch_proper_motion = datetime.now(timezone.utc).year
             self._logger.debug('Proper motion epoch set to now: ' + str(epoch_proper_motion))
         else:
             raise ValueError('epoch_proper_motion value %s is forbidden' % epoch_proper_motion)
@@ -1942,7 +1943,7 @@ def get_centroids_from_image(image, sigma=2, image_th=None, crop=None, downsampl
             assert filtsize is not None, \
                 'Must define filter size for local median background subtraction'
             assert filtsize % 2 == 1, 'Filter size must be odd'
-            image = image - scipy.ndimage.filters.uniform_filter(image, size=filtsize,
+            image = image - scipy.ndimage.uniform_filter(image, size=filtsize,
                                                                  output=image.dtype)
         elif bg_sub_mode.lower() == 'global_median':
             image = image - np.median(image)
@@ -1967,7 +1968,7 @@ def get_centroids_from_image(image, sigma=2, image_th=None, crop=None, downsampl
         elif sigma_mode.lower() == 'local_root_square':
             assert filtsize is not None, 'Must define filter size for local median sigma mode'
             assert filtsize % 2 == 1, 'Filter size must be odd'
-            img_std = np.sqrt(scipy.ndimage.filters.uniform_filter(image**2, size=filtsize,
+            img_std = np.sqrt(scipy.ndimage.uniform_filter(image**2, size=filtsize,
                                                                    output=image.dtype))
         elif sigma_mode.lower() == 'global_median_abs':
             img_std = np.median(np.abs(image)) * 1.48
