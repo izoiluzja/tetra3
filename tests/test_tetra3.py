@@ -31,17 +31,10 @@ def test_tetra3_solve_from_centroids():
     t3 = Tetra3(load_database='default_database')
     centroids = np.array([[100, 100], [200, 200], [300, 300], [400, 400]], dtype=np.float32)
     size = (500, 500)
-    try:
-        result = t3.solve_from_centroids(centroids, size, fov_estimate=10)
-        assert 'RA' in result
-        assert 'Dec' in result
-        assert 'Roll' in result
-    except AttributeError as e:
-        if "module 'numpy' has no attribute 'math'" in str(e):
-            import pytest
-            pytest.skip("NumPy compatibility issue, skipping test")
-        else:
-            raise
+    result = t3.solve_from_centroids(centroids, size, fov_estimate=10)
+    assert 'RA' in result
+    assert 'Dec' in result
+    assert 'Roll' in result
 
 
 def test_tetra3_database_properties():
