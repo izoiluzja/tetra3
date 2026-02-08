@@ -4,17 +4,17 @@ import pytest
 import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import tetra3.tetra3 as tetra3_module
+from tetra3 import solver
 
-_insert_at_index = tetra3_module._insert_at_index
-_get_table_index_from_hash = tetra3_module._get_table_index_from_hash
-_key_to_index = tetra3_module._key_to_index
-_compute_vectors = tetra3_module._compute_vectors
-_compute_centroids = tetra3_module._compute_centroids
-_undistort_centroids = tetra3_module._undistort_centroids
-_distort_centroids = tetra3_module._distort_centroids
-_find_rotation_matrix = tetra3_module._find_rotation_matrix
-_find_centroid_matches = tetra3_module._find_centroid_matches
+_insert_at_index = solver._insert_at_index
+_get_table_index_from_hash = solver._get_table_index_from_hash
+_key_to_index = solver._key_to_index
+_compute_vectors = solver._compute_vectors
+_compute_centroids = solver._compute_centroids
+_undistort_centroids = solver._undistort_centroids
+_distort_centroids = solver._distort_centroids
+_find_rotation_matrix = solver._find_rotation_matrix
+_find_centroid_matches = solver._find_centroid_matches
 
 
 def test_insert_at_index():

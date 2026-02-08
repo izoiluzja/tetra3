@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tetra3"
+version = "0.2.1"
+description = "A fast lost-in-space plate solver for star trackers."
+readme = { file = "README.rst", content-type = "text/x-rst" }
+license = { text = "Apache-2.0" }
+
+authors = [
+  { name = "European Space Agency" }
+]
+
+dependencies = [
+  "numpy",
+  "Pillow",
+  "scipy"
+]
+
+[project.urls]
+homepage = "https://github.com/esa/tetra3"
+download = "https://github.com/esa/tetra3/archive/refs/heads/master.zip"
+documentation = "https://tetra3.readthedocs.io/en/latest/"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+tetra3 = ["data/*"]

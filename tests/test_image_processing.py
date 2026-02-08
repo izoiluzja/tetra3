@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 from PIL import Image
-from tetra3.tetra3 import get_centroids_from_image, crop_and_downsample_image
+from tetra3 import get_centroids_from_image, crop_and_downsample_image
 
 
 def test_get_centroids_from_image():

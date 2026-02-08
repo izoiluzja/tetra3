@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 from pathlib import Path
-from tetra3.tetra3 import Tetra3
+from tetra3 import Tetra3
 
 
 def test_generate_database(tmp_path):

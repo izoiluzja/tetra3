@@ -1,7 +1,7 @@
 """Test suite for the Tetra3 class."""
 import numpy as np
 import pytest
-from tetra3.tetra3 import Tetra3
+from tetra3 import Tetra3
 
 
 def test_tetra3_initialization():
