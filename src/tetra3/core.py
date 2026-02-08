@@ -1,27 +1,14 @@
 # Standard imports:
-from pathlib import Path
-import csv
-import logging
-import itertools
-from time import perf_counter as precision_timestamp
-from datetime import datetime
-from datetime import timezone
-from numbers import Number
 
 # External imports:
 import numpy as np
 
-from numpy.linalg import norm, lstsq
 import scipy.ndimage
 import scipy.optimize
 import scipy.stats
 import scipy
-from scipy.spatial import KDTree
-from scipy.spatial.distance import pdist, cdist
-from scipy.special import comb
 from PIL import Image, ImageDraw
 
-from tetra3 import utils
 
 
 def get_centroids_from_image(image, sigma=2, image_th=None, crop=None, downsample=None,

@@ -48,7 +48,6 @@ def test_tetra3_database_properties():
 
 def test_tetra3_debug_folder(tmp_path):
     """Test setting the debug folder."""
-    import pytest
     debug_folder = tmp_path / 'debug'
     t3 = Tetra3(load_database=None, debug_folder=debug_folder)
     # Skip the test for now

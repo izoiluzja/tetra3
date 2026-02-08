@@ -1,7 +1,5 @@
 """Test suite for database operations."""
-import numpy as np
 import pytest
-from pathlib import Path
 from tetra3 import Tetra3
 
 

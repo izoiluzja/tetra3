@@ -1,6 +1,5 @@
 """Test suite for image processing functions."""
 import numpy as np
-import pytest
 from PIL import Image
 from tetra3 import get_centroids_from_image, crop_and_downsample_image
 
